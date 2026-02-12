@@ -1,0 +1,37 @@
+
+  
+  
+  <form id="form" action="/noticias/add" method="POST">
+    <fieldset>
+      <legend>Adicionar Notícia</legend>
+    <label>Título:</label><input type="text" class="titulo" id="titulo" name="titulo" placeholder="Título da Notícia" required><br><br>
+    
+    <label>Subtítulo:</label>
+    <input type="text" class="subti" id="subti" name="subti" placeholder="Subítulo da Notícia" required><br><br>
+    
+    <label>Categoria:</label>
+    <select class="subti" id="idCategoria" name="idCategoria">
+      {{#each categorias}}
+      <option value="{{dataValues.id}}">{{dataValues.nome}}</option>
+      {{/each}}
+    </select><br><br>
+
+    <label>Texto:</label>
+    <textarea class="texto" id="texto" name="texto" placeholder="Escreva sua notícia aqui" required></textarea><br><br>
+    
+    <label>Nome do Autor:</label>
+    <input type="text" class="nomeAutor" id="nomeAutor" name="nomeAutor" placeholder="Nome do autor da noticia" required><br><br>
+    
+    <label>Cidade do Autor:</label>
+    <input type="text" class="cidAutor" id="cidAutor" name="cidAutor" placeholder="cidade do autor da notícia" required><br><br>
+    <label>Foto: </label><input type="text" class="foto" name="fotos" id="foto"><br><br>
+    <label>Ver só:</label>
+    <select class="ver" id="ver" name="ver">
+      <option value="s">Sim</option>
+      <option value="n">Não</option>
+    </select><br><br>
+    
+    <input type="submit" value="Enviar"><br><br>
+    </fieldset>
+  </form>
+

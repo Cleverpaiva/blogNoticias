@@ -1,0 +1,95 @@
+
+  
+  
+  <form id="form" action="/noticias/editNoticia" method="POST">
+    <input type="hidden" name="id" value="{{noticia.id}}">
+    <fieldset>
+      <legend>Adicionar Notícia</legend>
+    <label>Título:</label><input type="text" class="titulo" id="titulo" name="titulo" value="{{noticia.titulo}}"><br><br>
+    
+    <label>Subtítulo:</label>
+    <input type="text" class="subti" id="subti" name="subti" value="{{noticia.subti}}" required><br><br>
+    
+    <label>Categoria:</label>
+    <select class="subti" id="idCategoria" name="idCategoria">
+      {{#each categorias}}
+      <option value="{{this.id}}">{{this.nome}}</option>
+      {{/each}}
+    </select><br><br>
+
+    <label>Texto:</label>
+    <textarea class="texto" id="texto" name="texto" required> {{noticia.texto}}</textarea><br><br>
+    
+    <label>Nome do Autor:</label>
+    <input type="text" class="nomeAutor" id="nomeAutor" name="nomeAutor" value="{{noticia.nomeAutor}}" required><br><br>
+    
+    <label>Cidade do Autor:</label>
+    <input type="text" class="cidAutor" id="cidAutor" name="cidAutor" value="{{noticia.cidAutor}}" required><br><br>
+    <label>Foto: </label><input type="text" class="fotos" name="fotos" id="fotos" value="{{noticia.fotos}}"><br><br>
+    <label>Ver só:</label>
+    <select class="ver" id="ver" name="ver">
+      <option value="s">Sim</option>
+      <option value="n">Não</option>
+    </select><br><br>
+    
+    <input type="submit" value="Enviar"><br><br>
+    </fieldset>
+  </form>
+
+
+<!--
+<script>
+  // Obter os parâmetros da URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get('id');
+  const titulo = urlParams.get('titulo');
+  const subti = urlParams.get('subti');
+  const texto = urlParams.get('texto');
+  const nomeAutor = urlParams.get('nomeAutor');
+  const cidAutor = urlParams.get('cidAutor');
+  const fotos = urlParams.get('fotos');
+  const ver = urlParams.get('ver');
+
+  // Preencher o formulário com os valores dos parâmetros
+  document.getElementById('titulo').value = titulo;
+  document.getElementById('subti').value = subti;
+  document.getElementById('texto').value = texto;
+  document.getElementById('nomeAutor').value = nomeAutor;
+  document.getElementById('cidAutor').value = cidAutor;
+  document.getElementById('fotos').value = fotos;
+  document.getElementById('ver').value = ver;
+
+  // Lógica para salvar os dados editados
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Obter os valores editados do formulário
+    const novoTitulo = document.getElementById('titulo').value;
+    const novoSubti = document.getElementById('subti').value;
+    const novoTexto = document.getElementById('texto').value;
+    const novoAutor = document.getElementById('nomeAutor').value;
+    const novaCid = document.getElementById('cidAutor').value;
+    const novaFoto = document.getElementById('fotos').value;
+    const novoVer = document.getElementById('ver').value;
+
+    // Realizar a lógica de salvamento dos dados aqui
+
+    // Enviar a requisição PUT para a rota de atualização
+    const xhr = new XMLHttpRequest();
+    xhr.open('PUT', `/noticias/editNoticia/${id}`);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          // Redirecionar de volta para a página principal
+          console.log('Erro ao atualizar os dados na noticia');
+          
+        } else {
+          window.location.href = '/';
+        }
+      }
+    };
+    const requestBody = `titulo=${encodeURIComponent(novoTitulo)}&subTi=${encodeURIComponent(novoSubti)}&texto=${encodeURIComponent(novoTexto)}&nomeAutor=${encodeURIComponent(nomeAutor)}&cidAutor=${encodeURIComponent(novaCid)}&fotos=${encodeURIComponent(novaFoto)}&ver=${encodeURIComponent(novoVer)}`;
+    xhr.send(requestBody);
+  });
+</script>  -->

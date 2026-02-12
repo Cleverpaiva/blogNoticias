@@ -1,0 +1,60 @@
+
+  
+  
+  <form id="formUsers" action="/usuarios/editUsuario" method="POST" onsubmit="return valida()">
+    <input type="hidden" name="id" value="{{usuario.id}}">
+    <fieldset>
+      <legend>Adicionar Usuário</legend>
+    <label>Nome:</label><input type="text" class="titulo" id="titulo" name="nome" value="{{usuario.nome}}"><br><br>
+    
+    <label>E-mail:</label>
+    <input type="email" class="subti" id="email" name="email" value="{{usuario.email}}"><br><br>
+    
+    <label>Login:</label>
+    <input type="text" class="subti" id="login" name="login" value="{{usuario.login}}"></textarea><br><br>
+    
+    <label>Senha:</label>
+    <input type="password" class="subti" id="senha" name="senha" value="{{usuario.senha}}"><br><br>
+    
+    <label>Senha:</label>
+    <input type="password" class="subti" id="senha2" name="senha2" value="{{usuario.senha}}"><br><br>
+    <label>Usuário Ativo:</label>
+    <select class="subti" id="ativo" name="ativo">
+      <option value="1">Sim</option>
+      <option value="0">Não</option>
+    </select><br><br>
+    
+    <input type="submit" value="Enviar"><br><br>
+    </fieldset>
+  </form>
+
+
+
+    <a href="/usuarios/adm">Voltar</a>
+    <script>
+        function valida(){
+            d=document.formUsers;
+            if(d.nome.value==""){
+                alert("O campo "+d.nome.name+" deve ser preenchido!");
+                d.nome.focus();
+                return false;
+            }
+            if(d.login.value==""){
+                alert("O campo "+d.login.name+" deve ser preenchido!");
+                d.nome.focus();
+                return false;
+            }
+
+            if(d.email.value==""){
+                alert("O campo "+d.email.name+" deve ser preenchido!");
+                d.nome.focus();
+                return false;
+            }
+
+            if(d.senha.value != d.senha2.value){
+                    alert("OS CAMPOS DE SENHA DEVEM SER IGUAIS!");
+                    d.senha.focus();
+                    return false;
+                }
+        }           
+    </script>

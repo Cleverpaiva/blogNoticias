@@ -1,0 +1,39 @@
+<div class="noticias-container">
+     {{#if noticias}}
+        {{#each noticias}}
+       
+        <article class="noticia-card">
+            <h1 class="noticia-titulo"><a href="/noticias/news/{{this.id}}"> {{this.titulo}}</a></h1>
+            <h3 class="noticia-subtitulo">{{this.subti}}</h3>
+            
+            {{#if fotos}}
+            <img src="{{this.fotos}}" alt="{{this.titulo}}" class="noticia-imagem">
+            {{else}}
+            <img src="{{this.fotos}}" alt="Imagem padrão" class="noticia-imagem">
+            {{/if}}
+            
+            <p class="noticia-texto">{{this.texto}}</p>
+            
+            <div class="noticia-footer">
+                <div>
+                    {{#if nomeAutor}}
+                    <strong>📝 Autor:</strong> {{this.nomeAutor}}
+                    {{#if cidAutor}} - {{this.cidAutor}}{{/if}}
+                    {{/if}}
+                </div>
+                <a href="/comentarios/coment/{{this.id}}" target="_blank" class="btn-comentario">
+                    💬 Comentar
+                </a>
+            </div>
+        </article>
+        
+        {{#unless @last}}
+        <hr class="noticia-divider">
+        {{/unless}}
+        {{/each}}
+    {{else}}
+        <div class="nenhuma-noticia">
+            <p>Nenhuma notícia disponível no momento.</p>
+        </div>
+    {{/if}}
+</div>

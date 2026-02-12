@@ -1,0 +1,34 @@
+<div>
+                <span style="color: var(--text-gray);">Olá, {{session.login}}</span>
+                <button class="btn btn-outline" onclick="window.location.href='/logout'">Sair</button>
+  </div>
+
+<table width="90%" >
+  <button type="button" class="btn-adm"><a href="/categorias/admCategorias">+ Categorias</a></button>
+  <button type="button" class="btn-adm"><a href="/adm">+ Noticias</a></button>
+  <button type="button" class="btn-adm"><a href="/comentarios/admComentarios">+ Comentários</a></button>
+  <button type="button" class="btn-adm"><a href="/usuarios/admUsuarios">+ Usuarios</a></button>
+<tr> <th scope="col">id</th> <th scope="col">Usuário</th> <th scope="col">E-mail</th> <th scope="col">Login</th><th scope="col">Ativo</th><th scope="col">Criado em</th> <th scope="col">Operações</th></tr>
+
+
+{{#each usuarios}}
+<tr class='adm'>
+
+<td id="id" value="{{dataValues.id}}">{{dataValues.id}}</td>
+<td id="nome">{{dataValues.nome}}</td>
+<td id="email">{{dataValues.email}}</td>
+<td id="login">{{dataValues.login}}</td>
+<td id="ativo">{{dataValues.ativo}}</td>
+<td id="createdAt">{{dataValues.createdAt}}</td>
+
+<td><a href="/usuarios/editUsuario/{{dataValues.id}}">
+  <img id="updel" src="/img/editar.png" alt="edita" weight="19" width="19">
+</a>
+<a href="/usuarios/removerUsuario/{{dataValues.id}}" onclick="return confirm('Tem certeza que deseja remover este Usuário?')" id="deletar-link"><img id="updel" src="/img/deletar.png" alt="deletar" weight="25" width="25"></a>
+</td>
+
+</tr>
+{{/each}}
+</table>
+<br>
+<a href="/usuarios/CadUsuarios"><img id="updel" src="/img/112.png" alt="edita" weight="19" width="19">Adicionar Usuário</a>

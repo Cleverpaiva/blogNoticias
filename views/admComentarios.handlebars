@@ -1,0 +1,30 @@
+
+<div>
+                <span style="color: var(--text-gray);">Olá, {{session.login}}</span>
+                <button class="btn btn-outline" onclick="window.location.href='/logout'">Sair</button>
+  </div>
+<table width="90%" >
+  <button type="button" class="btn-adm"><a href="/categorias/admCategorias">+ Categorias</a></button>
+  <button type="button" class="btn-adm"><a href="/adm">+ Noticias</a></button>
+  <button type="button" class="btn-adm"><a href="/comentarios/admComentarios">+ Comentários</a></button>
+  <button type="button" class="btn-adm"><a href="/usuarios/admUsuarios">+ Usuarios</a></button>
+<tr> <th scope="col">id</th> <th scope="col">Usuário</th> <th scope="col">Conteúdo</th> <th scope="col">Criado</th><th>Operações</th> </tr>
+
+
+{{#each comentarios}}
+<tr class='adm'>
+
+<td id="id" value="{{dataValues.idComent}}">{{dataValues.idComent}}</td>
+<td id="nome">{{dataValues.nome}}</td>
+<td id="conteu">{{dataValues.conteudo}}</td>
+<td id="createdAt">{{dataValues.createdAt}}</td>
+<td><a href="/comentarios/editComentario/{{dataValues.idComent}}">
+  <img id="updel" src="/img/editar.png" alt="edita" weight="19" width="19">
+</a>
+<a href="/comentarios/removerComentario/{{dataValues.idComent}}" onclick="return confirm('Tem certeza que deseja remover este comentário?')" id="deletar-link"><img id="updel" src="/img/deletar.png" alt="deletar" weight="25" width="25"></a>
+</td>
+
+</tr>
+{{/each}}
+</table>
+

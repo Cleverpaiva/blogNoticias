@@ -1,0 +1,19 @@
+
+  
+  <h2 class="noticia-titulo">Título da Notícia: {{noticias.titulo}}</h2>
+  <form id="form" action="/comentarios/addComent" method="POST">
+    <fieldset>
+      <legend>Adicionar Comentário</legend>
+    <label>Nome do Usuário:</label><input type="text" class="titulo" id="nome" name="nome" placeholder="Nome do Usuário" required><br><br>
+    
+    <label>email:</label>
+    <input type="text" class="email" id="email" name="email" placeholder="E-mail do usuário" required><br><br>
+    
+    <label>Conteudo:</label>
+    <textarea class="texto" id="conteudo" name="conteudo" placeholder="Insira seu Comentário aqui" required></textarea><br><br>
+    
+    <input type="hidden" name="idNot" value="{{noticias.id}}">
+    <input type="submit" value="Salva Comentário"><br><br>
+    </fieldset>
+  </form>
+

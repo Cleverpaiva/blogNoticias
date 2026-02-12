@@ -1,0 +1,197 @@
+<!--
+<style>
+    .noticias-container {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .noticia-card {
+        background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border-left: 4px solid #667eea;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .noticia-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .noticia-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+    }
+
+    .noticia-card:hover::before {
+        opacity: 1;
+    }
+
+    .noticia-titulo {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #2d3748;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .noticia-subtitulo {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #4a5568;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+    }
+
+    .noticia-imagem {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        border-radius: 12px;
+        margin: 1.5rem 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .noticia-card:hover .noticia-imagem {
+        transform: scale(1.02);
+    }
+
+    .noticia-texto {
+        font-size: 1.05rem;
+        color: #4a5568;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+    }
+
+    .noticia-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #e2e8f0;
+    }
+
+    .btn-comentario {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.8rem 1.8rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        font-size: 0.95rem;
+    }
+
+    .btn-comentario:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .noticia-divider {
+        margin: 3rem 0;
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #667eea, #764ba2, transparent);
+    }
+
+    .nenhuma-noticia {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: #718096;
+        font-size: 1.2rem;
+    }
+
+    .nenhuma-noticia::before {
+        content: "📰";
+        display: block;
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .noticia-titulo {
+            font-size: 1.6rem;
+        }
+
+        .noticia-subtitulo {
+            font-size: 1.1rem;
+        }
+
+        .noticia-texto {
+            font-size: 1rem;
+        }
+
+        .noticia-card {
+            padding: 1.5rem;
+        }
+
+        .btn-comentario {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+</style>
+-->
+
+<div class="noticias-container">
+     {{#if noticias}}
+        {{#each noticias}}
+       
+        <article class="noticia-card">
+            <h1 class="noticia-titulo"><a href="/noticias/news/{{dataValues.id}}"> {{dataValues.titulo}}</a></h1>
+            <h3 class="noticia-subtitulo">{{dataValues.subti}}</h3>
+            
+            {{#if fotos}}
+            <img src="{{dataValues.fotos}}" alt="{{dataValues.titulo}}" class="noticia-imagem">
+            {{else}}
+            <img src="{{dataValues.fotos}}" alt="Imagem padrão" class="noticia-imagem">
+            {{/if}}
+            
+            <p class="noticia-texto">{{dataValues.texto}}</p>
+            
+            <div class="noticia-footer">
+                <div>
+                    {{#if nomeAutor}}
+                    <strong>📝 Autor:</strong> {{dataValues.nomeAutor}}
+                    {{#if cidAutor}} - {{dataValues.cidAutor}}{{/if}}
+                    {{/if}}
+                </div>
+                <a href="/comentarios/coment/{{dataValues.id}}" target="_blank" class="btn-comentario">
+                    💬 Comentar
+                </a>
+            </div>
+        </article>
+        
+        {{#unless @last}}
+        <hr class="noticia-divider">
+        {{/unless}}
+        {{/each}}
+    {{else}}
+        <div class="nenhuma-noticia">
+            <p>Nenhuma notícia disponível no momento.</p>
+        </div>
+    {{/if}}
+</div>

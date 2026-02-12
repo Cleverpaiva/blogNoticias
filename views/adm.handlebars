@@ -1,0 +1,47 @@
+<div >
+                <span style="color: var(--text-gray);">Olá, {{session.login}}</span>
+                <button class="btn btn-outline" onclick="window.location.href='/logout'">Sair</button>
+  </div>
+
+<table width="90%" >
+  <button type="button" class="btn-adm"><a href="/categorias/admCategorias">+ Categorias</a></button>
+  <button type="button" class="btn-adm"><a href="/adm">+ Noticias</a></button>
+  <button type="button" class="btn-adm"><a href="/comentarios/admComentarios">+ Comentários</a></button>
+  <button type="button" class="btn-adm"><a href="/usuarios/admUsuarios">+ Usuarios</a></button>
+<tr> <th scope="col">id</th> <th scope="col">Titulo</th> <th scope="col">Criação</th> <th scope="col">Atualização</th><th>Operações</th> </tr>
+
+
+{{#each noticias}}
+<tr class='adm'>
+
+<td id="id" value="{{dataValues.id}}">{{dataValues.id}}</td>
+<td id="titulo">{{dataValues.titulo}}</td>
+<td id="createdAt">{{dataValues.createdAt}}</td>
+<td id="updatedAt">{{dataValues.updatedAt}}</td>
+<td><a href="/noticias/editNoticia/{{dataValues.id}}">
+  <img id="updel" src="/img/editar.png" alt="edita" weight="19" width="19">
+</a>
+<a href="/noticias/removerNoticia/{{dataValues.id}}" onclick="return confirm('Tem certeza que deseja remover esta notícia?')" id="deletar-link"><img id="updel" src="/img/deletar.png" alt="deletar" weight="25" width="25"></a>
+</td>
+
+</tr>
+{{/each}}
+</table>
+<br>
+<a href="/noticias/add"><img id="updel" src="/img/112.png" alt="edita" weight="19" width="19">Adicionar Notícia</a>
+<!--
+</div>
+<HR>
+ <script>
+    function editarContato(id) {
+      // Obter os valores da tabela com base no ID
+      //const id = document.getElementById('id' +id).innerText;
+      const nome = document.getElementById('nome' + id).innerText;
+      const telefone = document.getElementById('telefone' + id).innerText;
+      const email = document.getElementById('email' + id).innerText;
+      
+      // Redirecionar para a página de edição com os valores preenchidos
+      window.location.href = '/atualiza?id=' + id + '&nome=' + encodeURIComponent(nome) + '&telefone=' + encodeURIComponent(telefone) + '&email=' + encodeURIComponent(email);
+    }
+  </script>
+  -->

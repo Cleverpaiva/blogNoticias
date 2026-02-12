@@ -1,0 +1,35 @@
+
+  
+  
+  <form id="formUsers" action="/categorias/editCategoria" method="POST" onsubmit="return valida()">
+    <input type="hidden" name="id" value="{{categoria.id}}">
+    <fieldset>
+      <legend>Editar Categoria</legend>
+    <label>Nome da Categoria:</label><input type="text" class="titulo" id="titulo" name="nome" value="{{categoria.nome}}"><br><br>
+        
+    <input type="submit" value="Enviar"><br><br>
+    </fieldset>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/usuarios/adm">Voltar</a>
+    <script>
+        function valida(){
+            d=document.formUsers;
+            if(d.nome.value==""){
+                alert("O campo "+d.nome.name+" deve ser preenchido!");
+                d.nome.focus();
+                return false;
+            }
+            
+        }           
+    </script>

@@ -1,0 +1,25 @@
+
+  
+  <h2 class="noticia-titulo">Título da Notícia: {{noticias.titulo}}</h2>
+  <form id="form" action="/comentarios/editComentario" method="POST">
+  <input type="hidden" name="id" value="{{comentario.idComent}}">
+    <fieldset>
+      <legend>Editar Comentário</legend>
+    <label>Nome do Usuário:</label><input type="text" class="titulo" id="nome" name="nome" value="{{comentario.nome}}"><br><br>
+    
+    <label>email:</label>
+    <input type="text" class="email" id="email" name="email" value="{{comentario.email}}"><br><br>
+    
+    <label>Conteudo:</label>
+    <textarea class="texto" id="conteudo" name="conteudo">{{comentario.conteudo}}</textarea><br><br>
+    
+    <label>Aprovado:</label>
+    <select class="aprovado" id="aprovado" name="aprovado">
+      <option value="1">Sim</option>
+      <option value="0">Não</option>
+    </select><br><br>
+    
+    <input type="submit" value="Salva Comentário"><br><br>
+    </fieldset>
+  </form>
+

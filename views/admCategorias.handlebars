@@ -1,0 +1,32 @@
+
+<div>
+                <span style="color: var(--text-gray);">Olá, {{session.login}}</span>
+                <button class="btn btn-outline" onclick="window.location.href='/logout'">Sair</button>
+  </div>
+<table width="90%" >
+  <button type="button" class="btn-adm"><a href="/categorias/admCategorias">+ Categorias</a></button>
+  <button type="button" class="btn-adm"><a href="/adm">+ Noticias</a></button>
+  <button type="button" class="btn-adm"><a href="/comentarios/admComentarios">+ Comentários</a></button>
+  <button type="button" class="btn-adm"><a href="/usuarios/admUsuarios">+ Usuarios</a></button>
+<tr> <th scope="col">id</th> <th scope="col">Categoria</th> <th scope="col">Criado em</th> <th scope="col">Alterado em</th><th>Operações</th> </tr>
+
+
+{{#each categorias}}
+<tr class='adm'>
+
+<td id="id" value="{{dataValues.id}}">{{dataValues.id}}</td>
+<td id="nome">{{dataValues.nome}}</td>
+<td id="createdAt">{{dataValues.createdAt}}</td>
+<td id="updatedAt">{{dataValues.updatedAt}}</td>
+<td><a href="/categorias/editCategoria/{{dataValues.id}}">
+  <img id="updel" src="/img/editar.png" alt="edita" weight="19" width="19">
+</a>
+<a href="/categorias/removerCategoria/{{dataValues.id}}" onclick="return confirm('Tem certeza que deseja remover esta categoria?')" id="deletar-link"><img id="updel" src="/img/deletar.png" alt="deletar" weight="25" width="25"></a>
+</td>
+
+</tr>
+{{/each}}
+</table>
+<br>
+<a href="/categorias/addCategorias"><img id="updel" src="/img/112.png" alt="edita" weight="19" width="19">Adicionar Categoria</a>
+

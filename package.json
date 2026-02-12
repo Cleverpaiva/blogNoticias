@@ -1,0 +1,29 @@
+{
+  "name": "sitenoticias",
+  "version": "1.0.0",
+  "description": "noticias ",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "noticias",
+    "informática",
+    "esporte",
+    "lazer"
+  ],
+  "author": "Cleverson Paiva",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "express-session": "^1.18.2",
+    "mysql2": "^3.3.3",
+    "sequelize": "^6.31.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
